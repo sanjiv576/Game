@@ -61,6 +61,12 @@ permission_label.grid(row=5, column=0)
 changes_label = Label(window_frame, text="Changes and Update")
 changes_label['font'] = myFont
 changes_label.grid(row=6, column=0)
+changes_label = Label(window_frame, text="Changes and Update")
+changes_label['font'] = myFont
+changes_label.grid(row=12, column=0)
+changes_label = Label(window_frame, text="Changes and Update")
+changes_label['font'] = myFont
+changes_label.grid(row=15, column=0)
 with open('changes.txt', 'r') as f:
     lines = f.read()
 changes_label = Label(window_frame, text=lines)
