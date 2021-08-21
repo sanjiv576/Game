@@ -38,7 +38,7 @@ with open('terms_and_conditions.txt', 'r') as f:
 terms_label = Label(window_frame, text=lines)
 terms_label.grid(row=1, column=0)
 
-lines.split("######")
+#lines.split("######")
 
 sound_label = Label(window_frame, text="Sound and music")
 sound_label['font'] = myFont
@@ -68,7 +68,7 @@ changes_label = Label(window_frame, text="Changes and Update")
 changes_label['font'] = myFont
 changes_label.grid(row=15, column=0)
 with open('changes.txt', 'r') as f:
-    lines = f.read()
+    lines = f.readlines()
 changes_label = Label(window_frame, text=lines)
 changes_label.grid(row=7, column=0)
 
