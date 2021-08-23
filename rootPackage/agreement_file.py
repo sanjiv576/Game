@@ -33,7 +33,7 @@ terms_and_condition_label = Label(window_frame, text="Terms and Conditions")
 terms_and_condition_label['font'] = myFont
 terms_and_condition_label.grid(row=0, column=0)
 
-with open('terms_and_conditions.txt', 'r') as f:
+with open('terms_and_conditions.txt', encoding='utf8') as f:
     lines = f.read()
 terms_label = Label(window_frame, text=lines)
 terms_label.grid(row=1, column=0)
@@ -53,7 +53,7 @@ permission_label = Label(window_frame, text="Permission")
 permission_label['font'] = myFont
 permission_label.grid(row=4, column=0)
 
-with open('permission.txt', 'r') as f:
+with open('permission.txt', encoding='utf8') as f:
     lines = f.read()
 permission_label = Label(window_frame, text=lines)
 permission_label.grid(row=5, column=0)
