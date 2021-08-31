@@ -2,12 +2,15 @@ import tkinter.messagebox
 from tkinter import *
 import sqlite3
 def link():
-    root = Tk()
+    root = Toplevel()
     root.title("Registration Forum")
     root.iconbitmap("agree_0.ico")
     root.geometry("800x600")
     root.resizable(width=False, height=False)
-    bg = PhotoImage(file="starysky.png")
+    root.configure(bg="green")
+   # backGround = PhotoImage(file="spongebob.png")
+
+
     #Creating a database
     """database = sqlite3.connect('registration.db')
     #Creating Cursor
@@ -43,9 +46,9 @@ def link():
     my_canvas = Canvas(root, width=800, height=600, highlightthickness=0)
     my_canvas.pack(fill="both", expand=True)
     #Setting Canvas Image
-    my_canvas.create_image(0,0, image=bg, anchor="nw")
+  #  my_canvas.create_image(0,0, image=backGround, anchor="nw")
     #Creating Label In Canvas
-    my_canvas.create_text(400, 60, text="CREATE AN ACCOUNT", font=("arial",30,'bold'), fill="red")
+    my_canvas.create_text(400, 60, text="CREATE AN ACCOUNT", font=("arial",30,'bold'), fill="blue")
     my_canvas.create_text(300, 140, text="FULL NAME", font=("helvetica",13, 'bold'), fill="grey")
     my_canvas.create_text(300, 235, text="USERNAME", font=("helvetica",13,'bold'), fill="grey")
     my_canvas.create_text(300, 330, text="PASSWORD", font=("helvetica",13,'bold'), fill="grey")
