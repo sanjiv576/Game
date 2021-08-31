@@ -10,7 +10,7 @@ window.title("Login")
 window.configure(bg="black")  # #6E6E6E = gray43
 window.geometry("400x700")
 window.resizable(True, True)  # resizable allows to change size of window of height and width set True resp.
-window.iconbitmap("lockup.png")
+window.iconbitmap("lockup.ico")
 
 # database starts
 connector = sqlite3.connect("Login.db")

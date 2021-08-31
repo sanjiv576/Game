@@ -1,29 +1,25 @@
 
 from tkinter import *
 from tkinter.font import *
-#from rootPackage.create_an_account import create_my_accoun
-
+from rootPackage.create_accounts import link
 
 def terms_and_conditions():
 
     agreement = Toplevel()
     agreement.title("Terms and Conditions")
-    agreement.geometry("900x800")
+    agreement.geometry("800x700")
     agreement.iconbitmap("agree_0.ico")
+    agreement.configure(bg="silver")
 
     # using different fonts for different headings
     myFont = Font(size=20, weight="bold")
-
-    # adding background image and including all buttons and labels inside the frame
-
-    bg_photo = PhotoImage(file="agree_1.png")
-    window_frame = Label(agreement, image=bg_photo)
-    window_frame.place(x=0, y=0, relwidth=1, relheight=1)
 
 
     # function created to hide this module and reveal main login window
     def close():
         agreement.withdraw()
+        link()
+
         #create_my_account()
 
 
@@ -31,66 +27,76 @@ def terms_and_conditions():
     def agree():
         response = val.get()
         if response == "On":
-            continue_button = Button(window_frame, text="Continue", highlightbackground="yellow",
-                                     command=close, font=("Century, Gothic", 20), padx=9, pady=9)
+            continue_button = Button(agreement, text="Continue", highlightbackground="yellow",
+                                     command=close, font=("Gothic", 20), padx=9, pady=9)
 
-            continue_button.grid(row=11, column=0)
-        else:
-            continue_button = Button(window_frame, text="Continue", bg="#FFFF00", font=("Century, Gothic", 20),
-                                     state=DISABLED, padx=9, pady=9)  # #FFFF00 = yellow color
-            continue_button.grid(row=11, column=0)
+            continue_button.pack()
+
 
     # files handling and labelling
-    terms_and_condition_label = Label(window_frame, text="Terms and Conditions")
+    terms_and_condition_label = Label(agreement, text="Terms and Conditions", bg="black", fg="white")
     terms_and_condition_label['font'] = myFont
-    terms_and_condition_label.grid(row=0, column=0)
+    terms_and_condition_label.pack()
 
-    with open('agreemment.txt', encoding='utf8') as f:
-        lines = f.read()
-    terms_label = Label(window_frame, text=lines)
-    terms_label.grid(row=1, column=0)
 
-    #lines.split("######")
+    agreement_t = """
+    Please read these Terms and Conditions carefully,
+    before playing “Space Invaders ” operated by Guardians of the Galaxy.
+    Your access to and use of our game is conditioned on your acceptance of and compliance with these Terms.
+    These Terms apply to all visitors, users and others who access or use the game.
+    You will need to enter your name and password to have access to our game.
+    We can guarantee you that your details will remain confidential and we whatsoever have no right to share it.
+    """
+    agreement_label = Label(agreement, text=agreement_t, bg="silver")
+    agreement_label.pack()
 
-    sound_label = Label(window_frame, text="Sound and music")
+    sound_t ="""This game may have some sound effects or music which may be disturbing to you so we recommend to mute the game
+    if you find it difficult to listen.
+    """
+
+    sound_label = Label(agreement, text="Sound and Music", bg="silver")
     sound_label['font'] = myFont
-    sound_label.grid(row=2, column=0)
+    sound_label.pack()
+    sound = Label(agreement, text=sound_t, bg="silver")
+    sound.pack()
 
-    with open('sound_music.txt',encoding='utf8') as f:
-        lines = f.read()
-    terms_label = Label(window_frame, text=lines)
-    terms_label.grid(row=3, column=0)
 
-    permission_label = Label(window_frame, text="Permission")
+
+    terms = """
+    Please read these Terms and Conditions carefully,
+    before playing “Space Invaders ” operated by Guardians of the Galaxy.
+    Your access to and use of our game is conditioned on your acceptance of and compliance with these Terms.
+    These Terms apply to all visitors, users and others who access or use the game.
+    You will need to enter your name and password to have access to our game.
+    We can guarantee you that your details will remain confidential and we whatsoever have no right to share it.
+    """
+
+
+    permission_label = Label(agreement, text="Permission", bg="silver")
     permission_label['font'] = myFont
-    permission_label.grid(row=4, column=0)
-
-    with open('permission.txt',encoding='utf8') as f:
-        lines = f.read()
-    permission_label = Label(window_frame, text=lines)
-    permission_label.grid(row=5, column=0)
-
-    changes_label = Label(window_frame, text="Changes and Update")
+    permission_label.pack()
+    permission_t = Label(agreement, text=terms, bg="silver")
+    permission_t.pack()
+    changes = """
+    We reserve the right, at our sole discretion, to modify or replace these Terms at any time.
+If any change were to come to our terms that directly or indirectly hampers your data and information,
+we will try to provide at least 15 days’ notice prior to any new terms taking effect.
+By accessing or using the game, you agree to be bound by these Terms. If you disagree with any part of the terms,
+then you may not access the Game."""
+    changes_label = Label(agreement, text="Changes and Update", bg="silver")
     changes_label['font'] = myFont
-    changes_label.grid(row=6, column=0)
-    with open('changes.txt',encoding='utf8') as f:
-        lines = f.read()
-    changes_label = Label(window_frame, text=lines)
-    changes_label.grid(row=7, column=0)
+    changes_label.pack()
 
-    empty_label = Label(window_frame, text="")
-    empty_label.grid(row=8, column=0)
-    empty_label = Label(window_frame, text="")
-    empty_label.grid(row=10, column=0)
+    changes_t = Label(agreement, text=changes, bg="silver")
+    changes_t.pack()
+
     # inserting check button
     val = StringVar()
-    check_button = Checkbutton(window_frame, text="Yes, I agree.", bg="blue", font=("Century, Gothic", 22),
+    check_button = Checkbutton(agreement, text="Yes, I agree.", bg="blue", font=("Century, Gothic", 22),
                                fg="white", variable=val, onvalue="On", offvalue="Off", command=agree)
     check_button.deselect()
-    check_button.grid(row=9, column=0)
+    check_button.pack()
 
-    continue_button = Button(window_frame, text="Continue", font=("Century, Gothic", 20),
-                  state=DISABLED, padx=9, pady=9)  #  #FFFF00 = yellow color
-    continue_button.grid(row=11, column=0)
+
 
     agreement.mainloop()
