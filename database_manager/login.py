@@ -1,8 +1,8 @@
 from tkinter import *
 from tkinter import messagebox
 import sys  # this is used to exit the window as needed
-from rootPackage.create_an_account import create_my_account
-from rootPackage.create_accounts import link
+
+from rootPackage.agreement_file import terms_and_conditions
 import sqlite3
 
 window = Tk()
@@ -96,7 +96,7 @@ login_button = Button(my_frame, text="Login", bg="blue", font=("courier", 17),
 login_button.grid(row=1, column=1)
 empty_line()
 noAccount_button = Button(my_frame, text="Don't have an account ?", bg="green",
-                          command=create_my_account,
+                          command=terms_and_conditions,
                           font=("courier", 17), fg="white", padx=10, pady=8)
 noAccount_button.grid(row=3, column=1)
 empty_line()

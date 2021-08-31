@@ -1,7 +1,7 @@
 
 from tkinter import *
 from tkinter.font import *
-from rootPackage.create_an_account import create_my_account
+#from rootPackage.create_an_account import create_my_accoun
 
 
 def terms_and_conditions():
@@ -24,7 +24,7 @@ def terms_and_conditions():
     # function created to hide this module and reveal main login window
     def close():
         agreement.withdraw()
-        create_my_account()
+        #create_my_account()
 
 
     # function for agree
@@ -45,7 +45,7 @@ def terms_and_conditions():
     terms_and_condition_label['font'] = myFont
     terms_and_condition_label.grid(row=0, column=0)
 
-    with open('/Users/user/PycharmProjects/Space_invaders/rootPackage/terms_and_conditions.txt', 'r+') as f:
+    with open('agreemment.txt', encoding='utf8') as f:
         lines = f.read()
     terms_label = Label(window_frame, text=lines)
     terms_label.grid(row=1, column=0)
@@ -56,7 +56,7 @@ def terms_and_conditions():
     sound_label['font'] = myFont
     sound_label.grid(row=2, column=0)
 
-    with open('/Users/user/PycharmProjects/Space_invaders/rootPackage/sound_music.txt', 'r+') as f:
+    with open('sound_music.txt',encoding='utf8') as f:
         lines = f.read()
     terms_label = Label(window_frame, text=lines)
     terms_label.grid(row=3, column=0)
@@ -65,7 +65,7 @@ def terms_and_conditions():
     permission_label['font'] = myFont
     permission_label.grid(row=4, column=0)
 
-    with open('/Users/user/PycharmProjects/Space_Invaders_Project/rootPackage/permission.txt', 'r') as f:
+    with open('permission.txt',encoding='utf8') as f:
         lines = f.read()
     permission_label = Label(window_frame, text=lines)
     permission_label.grid(row=5, column=0)
@@ -73,7 +73,7 @@ def terms_and_conditions():
     changes_label = Label(window_frame, text="Changes and Update")
     changes_label['font'] = myFont
     changes_label.grid(row=6, column=0)
-    with open('/Users/user/PycharmProjects/Space_invaders/rootPackage/changes.txt', 'r') as f:
+    with open('changes.txt',encoding='utf8') as f:
         lines = f.read()
     changes_label = Label(window_frame, text=lines)
     changes_label.grid(row=7, column=0)
