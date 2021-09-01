@@ -1,52 +1,35 @@
 import tkinter.messagebox
+from tkinter import messagebox
 from tkinter import *
 import sqlite3
 def link():
+
     root = Toplevel()
     root.title("Registration Forum")
     root.iconbitmap("agree_0.ico")
     root.geometry("800x600")
     root.resizable(width=False, height=False)
     root.configure(bg="green")
-   # backGround = PhotoImage(file="spongebob.png")
+    backGround = PhotoImage(file="spongebob.png")
+    # ----------------------------database use from here------------------------------------
+    connet_me = sqlite3.connect("Test.db")
+    cur = connet_me.cursor()
+    """   
+    # creating table
+    cur.execute('''CREATE TABLE ourTable(
+                                         full_name text,
+                                         username text,
+                                         password text)''')
+    print("Table has been created successfully.")"""
 
+    connet_me.commit()
+    connet_me.close()
 
-    #Creating a database
-    """database = sqlite3.connect('registration.db')
-    #Creating Cursor
-    cursor = database.cursor()"""
-    '''
-    #Creating Table
-    cursor.execute("""Create Table Information (
-    full_name text,
-    username text,
-    password text
-    )""")
-    '''
-    '''
-    def register():
-        # Creating a database
-        database = sqlite3.connect('registration.db')
-        # Creating Cursor
-        cursor = database.cursor()
-        #Inserting Data Into Table
-        cursor.execute("Insert Into Information Values (:name, :username, :password)",
-                       {
-                           'name': name_entry.get(),
-                           'username': username_entry.get(),
-                           'password': password_entry.get()
-                       })
-        cursor.execute("Select *,oid From Information")
-        data = cursor.fetchall()
-        print(data)
-        # Commiting Changes
-        database.commit()
-    '''
     # Creating Canvas
     my_canvas = Canvas(root, width=800, height=600, highlightthickness=0)
     my_canvas.pack(fill="both", expand=True)
     #Setting Canvas Image
-  #  my_canvas.create_image(0,0, image=backGround, anchor="nw")
+    #  my_canvas.create_image(0,0, image=backGround, anchor="nw")
     #Creating Label In Canvas
     my_canvas.create_text(400, 60, text="CREATE AN ACCOUNT", font=("arial",30,'bold'), fill="blue")
     my_canvas.create_text(300, 140, text="FULL NAME", font=("helvetica",13, 'bold'), fill="grey")
@@ -95,6 +78,16 @@ def link():
             tkinter.messagebox.showinfo("NAME EMPTY", "Please Enter Your Name Correctly!")
         elif username_entry.get() == "":
             tkinter.messagebox.showinfo("USERNAME EMPTY", "Please Enter Your Username Correctly!")
+        else:
+            connet_me = sqlite3.connect("Test.db")
+            cur = connet_me.cursor()
+            cur.execute("INSERT INTO ourTable VALUES(:full_name, :username_provided, :password_provided)",
+                        {'full_name':name_entry.get(),'username_provided':username_entry.get(),
+                         'password_provided':password_entry.get()})
+            print("Data have been inserted successfully.")
+            connet_me.commit()
+            connet_me.close()
+            messagebox.showinfo("Registration Successfully.", "Your account has been created successfully.")
 
 
 
@@ -112,4 +105,5 @@ def link():
     '''
     #Commiting Changes
         #database.commit()
+
     mainloop()

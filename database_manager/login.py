@@ -40,8 +40,17 @@ def have_an_account():
     elif username_entry.get() == "":
         messagebox.showwarning("Warning !", "Please, fill username box.")
     else:
-        print("User name : ", username_entry.get())
-        print("Password : ", password_entry.get())
+        connect_me = sqlite3.connect("Test.db")
+        cur = connect_me.cursor()
+        query = "SELECT * FROM ourTable WHERE username=? and password=?"
+        cur.execute(query,(username_entry.get(), password_entry.get()))
+        data_fetched = cur.fetchall()
+        if len(data_fetched) > 0:
+            messagebox.showinfo("Login Successfully", "Provided credentials are correct.")
+            print("User name : ", username_entry.get())
+            print("Password : ", password_entry.get())
+        else:
+            messagebox.showwarning("INVALID", "Your account has not been registered yet.")
 
 
 # username -- label, entry field

@@ -92,7 +92,7 @@ then you may not access the Game."""
 
     # inserting check button
     val = StringVar()
-    check_button = Checkbutton(agreement, text="Yes, I agree.", bg="blue", font=("Century, Gothic", 22),
+    check_button = Checkbutton(agreement, text="Yes, I agree.", bg="teal", font=("Century, Gothic", 22),
                                fg="white", variable=val, onvalue="On", offvalue="Off", command=agree)
     check_button.deselect()
     check_button.pack()
