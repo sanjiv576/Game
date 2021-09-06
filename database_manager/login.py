@@ -17,12 +17,13 @@ connector = sqlite3.connect("Login.db")
 # we created cursor to invoke methods that execute sqlite statements,
 # which fetch data from the result sets of the quries.
 cur = connector.cursor()
-'''
-cur.execute("""CREATE TABLE login_information (
-               username text,
-               password text)""")
+
+cur.execute("""CREATE TABLE IF NOT EXISTS  login_information (
+               username text, 
+               password text) """)
+
 print("Table has been created successfully.")
-'''
+
 # GUI starts
 msg = Label(window, text="USER LOGIN", font=("copperplate", 44), fg="teal", bg="black")
 msg.pack(ipadx=60, ipady=30)
@@ -47,8 +48,7 @@ def have_an_account():
         data_fetched = cur.fetchall()
         if len(data_fetched) > 0:
             messagebox.showinfo("Login Successfully", "Provided credentials are correct.")
-            print("User name : ", username_entry.get())
-            print("Password : ", password_entry.get())
+
         else:
             messagebox.showwarning("INVALID", "Your account has not been registered yet.")
 
