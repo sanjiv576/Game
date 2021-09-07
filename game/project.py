@@ -3,8 +3,7 @@ import pygame
 from pygame import mixer
 from pygame.locals import *
 
-
-pygame.mixer.pre_init(3400, -16,1,512) #frequency,size,channels,buffer,
+pygame.mixer.pre_init(3400, -16, 1, 512)  # frequency,size,channels,buffer,
 mixer.init()
 pygame.init()
 # define fps
@@ -22,16 +21,16 @@ font30 = pygame.font.SysFont('Constantia', 30)
 font40 = pygame.font.SysFont('Constantia', 40)
 
 # load sounds
-explosion_fx = pygame.mixer.Sound("D:/img/mrKrabs.wav")
+explosion_fx = pygame.mixer.Sound(r"C:\Users\Dell\PycharmProjects\SpaceInvaders\mrKrabs.wav")
 explosion_fx.set_volume(50)
 
-explosion2_fx = pygame.mixer.Sound("D:/img/plankton.wav")
+explosion2_fx = pygame.mixer.Sound("E:/img/plankton.wav")
 explosion2_fx.set_volume(50)
 
-laser_fx = pygame.mixer.Sound("D:/img/laser.wav")
+laser_fx = pygame.mixer.Sound("E:/img/laser.wav")
 laser_fx.set_volume(50)
 
-background_fx=pygame.mixer.Sound("D:/img/theme.wav")
+background_fx = pygame.mixer.Sound("E:/img/theme.wav")
 background_fx.set_volume(0.4)
 
 # define game variables
@@ -62,24 +61,30 @@ def draw_bg():
     screen.blit(bg, (0, 0))
     background_fx.play()
 
+
 # define function for creating text
 def draw_text(text, font, text_col, x, y):
     img = font.render(text, True, text_col)
     screen.blit(img, (x, y))
-def score_board(x,y):
+
+
+def score_board(x, y):
     score = font.render("Score : " + str(score_value), True, (255, 255, 255))
     screen.blit(score, (x, y))
 
-#create highscore
+
+# create highscore
 class Topscore:
     def __init__(self):
-        self.high_score=0
-    def top_score(self,score):
-        if score > self.high_score:
-            self.high_score=score
-        return self.high_score
-topscore=Topscore()
+        self.high_score = 0
 
+    def top_score(self, score):
+        if score > self.high_score:
+            self.high_score = score
+        return self.high_score
+
+
+topscore = Topscore()
 
 
 # create spaceship class
@@ -129,6 +134,7 @@ class Spaceship(pygame.sprite.Sprite):
             explosion_group.add(explosion)
             self.kill()
             game_over = -1
+
         return game_over
 
 
@@ -150,14 +156,13 @@ class Bullets(pygame.sprite.Sprite):
             explosion_fx.play()
             explosion = Explosion(self.rect.centerx, self.rect.centery, 2)
             explosion_group.add(explosion)
-            score_value
 
 
 # Create aliens class
 class Aliens(pygame.sprite.Sprite):
     def __init__(self, x, y):
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.image.load("plankton" + str(random.randint(1, 5)) + ".png")
+        self.image = pygame.image.load("plankton" + str(random.randint(1, 6)) + ".png")
         self.rect = self.image.get_rect()
         self.rect.center = [x, y]
         # adding direction
@@ -251,14 +256,14 @@ def create_aliens():
 create_aliens()
 
 # create player
-spaceship = Spaceship(int(screen_width / 2), screen_height - 100, 3) #coordinates
+spaceship = Spaceship(int(screen_width / 2), screen_height - 100, 3)  # coordinates
 spaceship_group.add(spaceship)
 
 run = True
 while run:
     clock.tick(fps)
-    global score
-    score=1
+    # global score
+    # score=1
     # draw bg
     draw_bg()
     if countdown == 0:
@@ -305,7 +310,7 @@ while run:
     alien_group.draw(screen)
     alien_bullet_group.draw(screen)
     explosion_group.draw(screen)
-    score_board(textX,textY)
+    score_board(textX, textY)
 
     # event handlers
     for event in pygame.event.get():
@@ -317,3 +322,4 @@ while run:
 
     pygame.display.update()
 pygame.quit()
+
