@@ -21,7 +21,7 @@ font30 = pygame.font.SysFont('Constantia', 30)
 font40 = pygame.font.SysFont('Constantia', 40)
 
 # load sounds
-explosion_fx = pygame.mixer.Sound(r"C:\Users\Dell\PycharmProjects\SpaceInvaders\mrKrabs.wav")
+explosion_fx = pygame.mixer.Sound("E:/img/mrKrabs.wav")
 explosion_fx.set_volume(50)
 
 explosion2_fx = pygame.mixer.Sound("E:/img/plankton.wav")
