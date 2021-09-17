@@ -1,5 +1,5 @@
 # Space_Invaders_Project
-<p align = "center"><img src="https://github.com/Subifa071/CalculatorApp/blob/master/calculator.png" >
+<p align = "center"><img src="https://github.com/nishantdahal7/Space_Invaders_Project/blob/master/Space%20Invaders%20Logo.jpg" >
   <br>
 <h1>INTRODUCTION</h1>
 Space invaders is a classic arcade game.In this game, we simply have to stop the invaders to conquer our boundary.Our nemeses are the aliens and the player mode can either be single or multi-player.We have developed this game using python and also, have modified to SpongeBob theme.
