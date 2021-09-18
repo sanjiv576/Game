@@ -12,7 +12,11 @@ def link():
     root.resizable(width=False, height=False)
     root.configure(bg="green")
     bg = PhotoImage(file="spongebob.png")
+    # Creating Canvas
+    my_canvas = Canvas(root, width=800, height=600, highlightthickness=0)
+    my_canvas.pack(fill="both", expand=True)
 
+    my_canvas.create_image(0, 0, image=bg, anchor="nw")
 
     # ----------------------------database use from here------------------------------------
     connet_me = sqlite3.connect("Test.db")
@@ -28,11 +32,7 @@ def link():
     connet_me.commit()
     connet_me.close()
 
-    # Creating Canvas
-    my_canvas = Canvas(root, width=800, height=600, highlightthickness=0)
-    my_canvas.pack(fill="both", expand=True)
 
-    my_canvas.create_image(0, 0, image=bg, anchor="nw")
     #Setting Canvas Image
     #  my_canvas.create_image(0,0, image=backGround, anchor="nw")
     #Creating Label In Canvas
@@ -112,3 +112,4 @@ def link():
         #database.commit()
 
     root.mainloop()
+

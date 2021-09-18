@@ -6,8 +6,8 @@ from pygame.locals import *
 global score_value
 
 
-
 def sponngebob():
+    global score_value
     pygame.mixer.pre_init(3400, -16, 1, 512)  # frequency,size,channels,buffer,
     mixer.init()
     pygame.init()
@@ -74,6 +74,7 @@ def sponngebob():
 
 
     def score_board(x, y):
+        global score_value
         score = font.render("Score : " + str(score_value), True, (255, 255, 255))
         screen.blit(score, (x, y))
 
@@ -206,6 +207,7 @@ def sponngebob():
 
     # Create Explosion class
     class Explosion(pygame.sprite.Sprite):
+
         def __init__(self, x, y, size):
             pygame.sprite.Sprite.__init__(self)
             self.images = []
@@ -224,6 +226,8 @@ def sponngebob():
             self.rect = self.image.get_rect()
             self.rect.center = [x, y]
             self.counter = 0
+            global score_value
+
             score_value += 1
             print(score_value)
 
