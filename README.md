@@ -23,7 +23,9 @@ The functionalities of the game "Krusty Krab" are mentioned below:
     </ol></strong>
 <i>Future Work:
   <ol type= a start=1>
-    <li>Selection for level of difficulty
-    <li>Selection between 'Single' or 'Multi' player
     <li>Connect with other players online
+    <li>Selection between 'Single' or 'Multi' player
+    <li>Selection for level of difficulty
+    <li>Sound Control
+    <li>Scoreboard
     </ol></i>
