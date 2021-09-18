@@ -28,4 +28,4 @@ def open_credit():
     Nitesh Poudel
     """, font=("arial",23,'bold'), fill="black",)
 
-    mainloop()
+    root.mainloop()

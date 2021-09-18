@@ -1,9 +1,10 @@
 from tkinter import *
 from tkinter import messagebox
 import sys  # this is used to exit the window as needed
-
 from rootPackage.agreement_file import terms_and_conditions
+from rootPackage.Homepage import Our_game
 import sqlite3
+
 
 window = Tk()
 window.title("Login")
@@ -48,6 +49,7 @@ def have_an_account():
         data_fetched = cur.fetchall()
         if len(data_fetched) > 0:
             messagebox.showinfo("Login Successfully", "Provided credentials are correct.")
+            Our_game()
 
         else:
             messagebox.showwarning("INVALID", "Your account has not been registered yet.")

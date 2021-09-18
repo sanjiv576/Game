@@ -6,7 +6,7 @@ root.iconbitmap("sponge.ico")
 root.geometry("800x600")
 root.resizable(width=False, height=False)
 bg = PhotoImage(file="island2.png")
-bg1 = PhotoImage(file="arrowkey.png")
+bg1 = PhotoImage(file="arrowkey2.png")
 
 # Creating Canvas
 my_canvas = Canvas(root, width=800, height=600, highlightthickness=0)
@@ -33,4 +33,4 @@ my_canvas.create_text(510, 230, text="""
 ------------------ Moves The Character Down
 """, font=("arial",20,'bold'), fill="black")
 
-mainloop()
+root.mainloop()
