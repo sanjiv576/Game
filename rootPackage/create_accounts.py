@@ -1,16 +1,19 @@
+import tkinter
 import tkinter.messagebox
 from tkinter import messagebox
 from tkinter import *
 import sqlite3
 def link():
 
-    root = Toplevel()
+    root = tkinter.Toplevel()
     root.title("Registration Forum")
     root.iconbitmap("agree_0.ico")
     root.geometry("800x600")
     root.resizable(width=False, height=False)
     root.configure(bg="green")
-    backGround = PhotoImage(file="spongebob.png")
+    bg = PhotoImage(file="spongebob.png")
+
+
     # ----------------------------database use from here------------------------------------
     connet_me = sqlite3.connect("Test.db")
     cur = connet_me.cursor()
@@ -28,6 +31,8 @@ def link():
     # Creating Canvas
     my_canvas = Canvas(root, width=800, height=600, highlightthickness=0)
     my_canvas.pack(fill="both", expand=True)
+
+    my_canvas.create_image(0, 0, image=bg, anchor="nw")
     #Setting Canvas Image
     #  my_canvas.create_image(0,0, image=backGround, anchor="nw")
     #Creating Label In Canvas
@@ -106,4 +111,4 @@ def link():
     #Commiting Changes
         #database.commit()
 
-    mainloop()
+    root.mainloop()
