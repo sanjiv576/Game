@@ -1,6 +1,7 @@
 from tkinter import *
-from control import open_control
-import sys
+from rootPackage.control1 import open_control
+
+
 def open_setting():
     root = Toplevel()
     root.title("Setting")
@@ -36,4 +37,4 @@ def open_setting():
     back_button = Button(root, text="BACK", bg="#59c2dc",bd=0, fg="white", font=("arial", 15, 'bold'), width=15, height=2, command=exit_setting)
     back_window = my_canvas.create_window(310, 450, anchor="nw", window=back_button)
 
-    mainloop()
+    root.mainloop()

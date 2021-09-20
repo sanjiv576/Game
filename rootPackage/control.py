@@ -1,6 +1,9 @@
+import tkinter
 from tkinter import *
+
+
 def open_control():
-    root = Toplevel()
+    root = tkinter.Toplevel()
     root.title("Credits")
     root.iconbitmap("sponge.ico")
     root.geometry("800x600")
@@ -19,4 +22,5 @@ def open_control():
     my_canvas.create_image(0,0, image=bg1, anchor="nw")
 
 
-    mainloop()
+    root.mainloop()
+
