@@ -57,10 +57,12 @@ def sponngebob():
 
     # Score
     score_value = 0
-    font = pygame.font.Font('freesansbold.ttf', 32)  # (font,size)
+    font_game = pygame.font.Font('mmrtext.ttf', 32)  # (font,size)
     textX = 10
     textY = 10
 
+    top_score_font = pygame.font.SysFont("times", 32)
+    top_score_x, top_score_y = 350, 10
 
     def draw_bg():
         screen.blit(bg, (0, 0))
@@ -75,9 +77,34 @@ def sponngebob():
 
     def score_board(x, y):
         global score_value
-        score = font.render("Score : " + str(score_value), True, (255, 255, 255))
+        score = font_game.render("Score : " + str(score_value), True, (255, 255, 255))
         screen.blit(score, (x, y))
 
+        def high_score_func():
+            """
+            This function compares (from the file) previous score and current score to show high score on the screen.
+            :return: int
+            """
+            # working with highscore
+
+            with open("highScore.txt", "r+") as file:
+                # file.seek(0)
+                score_from_txt = file.read()
+                #print("Previous high score was : ", score_from_txt)
+                if score_value > int(score_from_txt):
+                    with open("highScore.txt", "w+") as f:
+                        f.write(str(score_value))
+                        f.seek(0)
+                        current_highscore = f.read()
+                        #print("Current high score is :", current_highscore)
+                        return current_highscore
+                else:
+
+                    return score_from_txt
+
+        final_top_score = high_score_func()
+        top_score = top_score_font.render("High Score : " + str(final_top_score), True, (255, 255, 255))
+        screen.blit(top_score, (top_score_x, top_score_y))
 
     # create highscore
     class Topscore:
@@ -261,10 +288,14 @@ def sponngebob():
             self.rect.center = [x, y]
             self.counter = 0
 
+
+
             global score_value
 
             score_value += 1
-            print(score_value)
+            #print(score_value)
+
+
 
         def update(self):
             # setting initial threshold
@@ -365,6 +396,8 @@ def sponngebob():
 
         pygame.display.update()
     pygame.quit()
+
+
 
 
 
