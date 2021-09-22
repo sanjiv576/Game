@@ -27,5 +27,4 @@ The functionalities of the game "Krusty Krab" are mentioned below:
     <li>Selection between 'Single' or 'Multi' player
     <li>Selection for level of difficulty
     <li>Sound Control
-    <li>Scoreboard
     </ol></i>
